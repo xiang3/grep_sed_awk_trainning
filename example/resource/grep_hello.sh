@@ -40,7 +40,12 @@ echo "\n"
 echo "查找日志文件中11点10分到11点20之间的日志文件内容: grep -E \"11:(1[0-9]|20)\" *.log"
 grep -E "11:(1[0-9]|20)" *.log
 # grep -P "11:(1[0-9]|20)" *.log
-echo "\n"
+echo "macOS -E Linux -P \n"
+
+echo "在testfile2.txt, testfile3.txt中找到包含testfile1.txt中的任意行:  grep -F -f testfile1.txt testfile2.txt testfile3.txt"
+grep -F -f testfile1.txt testfile2.txt testfile3.txt
+echo "-F 代表string lists多条匹配记录（满足其中任意一条即可匹配） -f为匹配内容被放在文件中\n"
+
 
 
 
