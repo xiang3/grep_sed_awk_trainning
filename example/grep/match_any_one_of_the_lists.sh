@@ -24,13 +24,13 @@ echo ""
 cat testfile3.txt
 echo ""
 
-# 多个文件中查找所需内容:
+# 在testfile2.txt, testfile3.txt中找到包含testfile1.txt中的任意行: 
 echo "在testfile2.txt, testfile3.txt中找到包含testfile1.txt中的任意行: "
 echo "running..."
 echo ""
 # when todo
 
-actual=$(grep -F -f testfile1.txt testfile2.txt testfile3.txt)
+actual="TODO"
 
 
 # then
