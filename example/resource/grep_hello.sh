@@ -1,3 +1,5 @@
+cd ../resource
+
 echo "grep \"hello\" example.txt"
 grep "hello" example.txt
 echo "\n"
@@ -32,10 +34,12 @@ echo "\n"
 
 echo "要在目录和其子目录下查找.txt文件中所需内容: grep \"test\" \`find path/ -name \"*.txt\"\`"
 grep "test" `find path/ -name "*.txt"` 
+grep -r "test" --include=\*.txt path
 echo "\n"
 
-echo "查找日志文件中11点10分到11点20之间的日志文件内容: grep -P \"11:(1[0-9]|20)\" *.log"
-grep -P "11:(1[0-9]|20)" *.log
+echo "查找日志文件中11点10分到11点20之间的日志文件内容: grep -E \"11:(1[0-9]|20)\" *.log"
+grep -E "11:(1[0-9]|20)" *.log
+# grep -P "11:(1[0-9]|20)" *.log
 echo "\n"
 
 
