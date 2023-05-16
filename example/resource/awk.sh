@@ -18,3 +18,7 @@ echo "找出年纪最大的人: awk -F', ' 'BEGIN { maxAge=0; maxPerson=""; } {i
 awk -F', ' 'BEGIN { maxAge=0; maxPerson=""; } {if( maxAge < int($3) ){ maxPerson=$0; maxAge=int($3); }}  END{print maxPerson}' example.csv
 echo "\n"
 
+echo "显示匹配的行号: awk '/hello/ {print NR\":\"\$0}' example.txt"
+awk '/hello/ {print NR":"$0}' example.txt
+echo "\n"
+
