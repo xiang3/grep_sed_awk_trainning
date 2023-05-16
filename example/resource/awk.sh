@@ -22,3 +22,6 @@ echo "显示匹配的行号: awk '/hello/ {print NR\":\"\$0}' example.txt"
 awk '/hello/ {print NR":"$0}' example.txt
 echo "\n"
 
+echo "统计出所有男生在上次考试中各科的平均分和:"
+awk -F', ' 'FILENAME==ARGV[1]{if(NR!=1 && $2=="男"){male[$1]=$0}} FILENAME==ARGV[2]{if($1 in male){score[$2]+=$3}} END{for( course in score ){print course FS (score[course] / length(male))}}' example.csv score.csv
+echo "\n"
