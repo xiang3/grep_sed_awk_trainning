@@ -25,3 +25,8 @@ echo "\n"
 echo "统计出所有男生在上次考试中各科的平均分和:"
 awk -F', ' 'FILENAME==ARGV[1]{if(NR!=1 && $2=="男"){male[$1]=$0}} FILENAME==ARGV[2]{if($1 in male){score[$2]+=$3}} END{for( course in score ){print course FS (score[course] / length(male))}}' example.csv score.csv
 echo "\n"
+
+echo "查找日志文件中11点10分到11点20之间的日志文件内容: awk '/^2023-05-14 11:20:54.189/, /^2023-05-14 11:13:58.844/' test.log"
+awk '/^2023-05-14 11:20:54.189/, /^2023-05-14 11:13:58.844/' test.log
+# grep -P "11:(1[0-9]|20)" *.log
+echo "macOS -E Linux -P \n"
