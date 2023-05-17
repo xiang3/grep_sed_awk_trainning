@@ -30,3 +30,7 @@ echo "查找日志文件中11点10分到11点20之间的日志文件内容: awk 
 awk '/^2023-05-14 11:20:54.189/, /^2023-05-14 11:13:58.844/' test.log
 # grep -P "11:(1[0-9]|20)" *.log
 echo "macOS -E Linux -P \n"
+
+echo "打印出错误日志包含堆栈信息:  awk 'BEGIN{error_log_start_line=0; print_log=\"false\"} {if(\$0 ~ /(INFO)|(DEBUG)/) {print_log=\"false\"}; if(match(\$0, \"ERROR\")){error_log_start_line=NR; print_log=\"true\"}; if(print_log==\"true\" && NR>=error_log_start_line){print \$0} }' example.log"
+awk 'BEGIN{error_log_start_line=0; print_log="false"} {if($0 ~ /(INFO)|(DEBUG)/) {print_log="false"}; if(match($0, "ERROR")){error_log_start_line=NR; print_log="true"}; if(print_log=="true" && NR>=error_log_start_line){print $0} }' example.log
+echo "\n"
