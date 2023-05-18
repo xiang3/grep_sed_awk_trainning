@@ -21,10 +21,11 @@ echo "running..."
 echo ""
 # when todo
 
-# actual=$(sed 's/hello/hi/g' example.txt)
-actual="TODO"
-
+actual=$(sed 's/hello/hi/g' example.txt)
+# actual="TODO"
+# actual=$(sed '4a\ /p' exmaple.txt)
 # then
+echo "$actual"
 echo "执行结果为："
 result=$(diff <( echo 'hiworld
 hi, world
