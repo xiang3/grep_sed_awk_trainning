@@ -24,7 +24,8 @@ actual="TODO"
 
 # then
 echo "执行结果为："
-result=$(diff -i <( echo '杜建, 89
+result=$(diff -i <( echo 'name, age
+杜建, 89
 杜世, 58' ) <( echo "$actual" ))
 
 if [ -n "$result" ]; then
